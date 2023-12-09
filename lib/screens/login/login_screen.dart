@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:unidue/screens/tabs/tabs.dart';
 import 'package:unidue/widgets/inkwell_wrapper.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,6 +12,16 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordVisible = false;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  String _enteredEmail = "";
+  String _enteredPassword = "";
+
+  void _submit() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 20,
           ),
           Form(
+            key: _formKey,
             child: FractionallySizedBox(
               widthFactor: 0.9,
               child: Column(
@@ -55,6 +67,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       labelText: "Email",
                       border: const OutlineInputBorder(),
                     ),
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return "Campo obrigatório";
+                      }
+                      if (!value.contains("@")) {
+                        return "Email inválido";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      _enteredEmail = value!;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   TextFormField(
                     obscureText: !_isPasswordVisible,
@@ -77,6 +104,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       labelText: "Senha",
                       border: const OutlineInputBorder(),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Campo obrigatório";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      _enteredPassword = value!;
+                    },
                   ),
                   const SizedBox(
                     height: 10,
@@ -99,9 +135,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 40,
                   ),
                   UnidueButton(
-                      onPressed: () {},
+                      onPressed: _submit,
                       buttonColor: Theme.of(context).colorScheme.primary,
                       buttonText: "Login"),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  UnidueButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Tabs(),
+                          ),
+                          (route)=>false
+                        );
+                      },
+                      buttonColor: Theme.of(context).colorScheme.primary,
+                      buttonText: "Login desenvolvedor"),
                 ],
               ),
             ),

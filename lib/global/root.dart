@@ -23,7 +23,8 @@ class AppRoot extends StatelessWidget {
           floatingLabelStyle: TextStyle(
             color: colorScheme.primary,
           )
-        )
+        ),
+
       ),
       home: const SplashScreen(),
     );
