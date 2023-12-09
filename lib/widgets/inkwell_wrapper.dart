@@ -13,8 +13,7 @@ class UnidueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Material(
+    return  Material(
         color: buttonColor,
         borderRadius: BorderRadius.circular(10),
         child: InkWell(
@@ -37,7 +36,6 @@ class UnidueButton extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

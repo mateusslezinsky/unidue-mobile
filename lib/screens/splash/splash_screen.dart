@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:unidue/widgets/inkwell_wrapper.dart';
 
+import '../login/login_screen.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -73,17 +75,28 @@ class SplashScreen extends StatelessWidget {
                   const SizedBox(
                     width: 20,
                   ),
-                  UnidueButton(
-                      onPressed: () {},
+                  Expanded(
+                    child: UnidueButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
                       buttonColor: const Color.fromARGB(200, 41, 229, 42),
-                      buttonText: "Login"),
+                      buttonText: "Login",
+                    ),
+                  ),
                   const SizedBox(
                     width: 20,
                   ),
-                  UnidueButton(
+                  Expanded(
+                    child: UnidueButton(
                       onPressed: () {},
                       buttonColor: Theme.of(context).colorScheme.primary,
-                      buttonText: "Cadastre-se"),
+                      buttonText: "Cadastre-se",
+                    ),
+                  ),
                   const SizedBox(
                     width: 20,
                   ),

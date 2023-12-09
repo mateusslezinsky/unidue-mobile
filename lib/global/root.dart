@@ -3,21 +3,29 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../screens/splash/splash_screen.dart';
 
-class AppRoot extends StatelessWidget{
+class AppRoot extends StatelessWidget {
   const AppRoot({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = ColorScheme.fromSeed(
+      seedColor: const Color.fromARGB(255, 91, 137, 255),
+      secondary: const Color.fromARGB(200, 22, 178, 23),
+    );
+
     return MaterialApp(
       title: 'Unidue',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 91, 137, 255)),
+        colorScheme: colorScheme,
         useMaterial3: true,
-        textTheme: GoogleFonts.poppinsTextTheme()
+        textTheme: GoogleFonts.poppinsTextTheme(),
+        inputDecorationTheme: InputDecorationTheme(
+          floatingLabelStyle: TextStyle(
+            color: colorScheme.primary,
+          )
+        )
       ),
       home: const SplashScreen(),
     );
   }
-
-
 }
