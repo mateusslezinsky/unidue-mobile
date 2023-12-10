@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unidue/screens/user/settings/user_settings.dart';
+import 'package:unidue/screens/user/widgets/user_details.dart';
 import 'package:unidue/screens/user/widgets/user_header.dart';
 
 class UserScreen extends StatefulWidget {
@@ -31,7 +32,10 @@ class _UserScreenState extends State<UserScreen> {
           )
         ],
       ),
-      body: ListView(children: const [UserHeader()]),
+      body: ListView(children: const [
+        UserHeader(),
+        UserDetails(),
+      ]),
     );
   }
 }
