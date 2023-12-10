@@ -11,6 +11,7 @@ class AppRoot extends StatelessWidget {
     ColorScheme colorScheme = ColorScheme.fromSeed(
       seedColor: const Color.fromARGB(255, 91, 137, 255),
       secondary: const Color.fromARGB(200, 22, 178, 23),
+      tertiary: const Color.fromARGB(255, 91, 137, 255),
     );
 
     return MaterialApp(
