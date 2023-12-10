@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:unidue/screens/dashboard/dashboard.dart';
+import 'package:unidue/screens/explore/explore_screen.dart';
+import 'package:unidue/screens/notifications/notifications_screen.dart';
 import 'package:unidue/screens/user/user_screen.dart';
 
 class Tabs extends StatefulWidget {
@@ -28,13 +30,11 @@ class _TabsState extends State<Tabs> {
     if(_selectedPageIndex == 0){
       activePage = const Dashboard();
     } else if(_selectedPageIndex == 1){
-      activePage = const Dashboard();
+      activePage = const ExploreScreen();
     } else if(_selectedPageIndex == 2){
-      activePage = const Dashboard();
+      activePage = const NotificationsScreen();
     } else if(_selectedPageIndex == 3){
       activePage = const UserScreen();
-    } else {
-      activePage = const Dashboard();
     }
 
     return Scaffold(

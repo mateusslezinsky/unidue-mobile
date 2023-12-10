@@ -16,11 +16,13 @@ class UserSettings extends StatelessWidget {
                 ),
           ),
         ),
-        ListTile(
-          leading: const Icon(Icons.edit),
-          title: const Text("Editar perfil"),
-          titleTextStyle:
-              Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 18),
+        InkWell(
+          child: ListTile(
+            leading: const Icon(Icons.edit),
+            title: const Text("Editar perfil"),
+            titleTextStyle:
+                Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 18),
+          ),
         ),
         ListTile(
           leading: const Icon(Icons.lock),

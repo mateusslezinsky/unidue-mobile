@@ -25,7 +25,6 @@ class AppRoot extends StatelessWidget {
             color: colorScheme.primary,
           )
         ),
-
       ),
       home: const SplashScreen(),
     );
