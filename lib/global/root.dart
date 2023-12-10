@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../screens/splash/splash_screen.dart';
+import 'dart:io' show Platform;
 
 class AppRoot extends StatelessWidget {
   const AppRoot({super.key});
@@ -24,6 +25,10 @@ class AppRoot extends StatelessWidget {
           floatingLabelStyle: TextStyle(
             color: colorScheme.primary,
           )
+        ),
+
+        appBarTheme: AppBarTheme(
+           toolbarHeight: Platform.isAndroid ? kToolbarHeight + 35 : kToolbarHeight,
         ),
       ),
       home: const SplashScreen(),

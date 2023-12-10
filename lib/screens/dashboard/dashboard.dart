@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget{
+class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Don't show the leading button
+        automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
