@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:unidue/screens/user/settings/user_settings.dart';
 import 'package:unidue/screens/user/widgets/user_header.dart';
-
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -10,6 +10,14 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
+  void _openSettings() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return const UserSettings();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,14 +25,12 @@ class _UserScreenState extends State<UserScreen> {
         title: const Text("@tomcruise"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _openSettings,
             icon: const Icon(Icons.settings),
           )
         ],
       ),
-      body: ListView(children: const [
-        UserHeader()
-      ]),
+      body: ListView(children: const [UserHeader()]),
     );
   }
 }

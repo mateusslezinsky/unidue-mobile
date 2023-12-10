@@ -43,7 +43,7 @@ class UserHeader extends StatelessWidget{
                         textAlign: TextAlign.start,
                         style: Theme.of(context)
                             .textTheme
-                            .titleMedium!
+                            .titleSmall!
                             .copyWith(
                           color: Theme.of(context).colorScheme.onPrimary,
                           fontWeight: FontWeight.w600,
@@ -52,7 +52,7 @@ class UserHeader extends StatelessWidget{
                     ),
                   ),
                   const SizedBox(
-                    width: 50,
+                    width: 60,
                   ),
                   SizedBox(
                     child: ElevatedButton(
@@ -62,14 +62,14 @@ class UserHeader extends StatelessWidget{
                           borderRadius: BorderRadius.circular(50),
                         ),
                         minimumSize: Size.zero,
-                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       ),
                       onPressed: () {},
                       child: Text(
                         "Seguir",
                         style: Theme.of(context)
                             .textTheme
-                            .titleMedium!
+                            .titleSmall!
                             .copyWith(
                             fontWeight: FontWeight.w600,
                             color:
@@ -78,7 +78,7 @@ class UserHeader extends StatelessWidget{
                     ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {},
@@ -88,7 +88,7 @@ class UserHeader extends StatelessWidget{
                       ),
                       backgroundColor: Theme.of(context).colorScheme.secondary,
                       minimumSize: Size.zero,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                     ),
                     child: Icon(
                       Icons.message,
