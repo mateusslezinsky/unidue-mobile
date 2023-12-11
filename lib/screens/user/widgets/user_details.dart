@@ -65,10 +65,11 @@ class _UserDetailsState extends State<UserDetails> {
                         showDialog(context: context, builder: (BuildContext context){
                           return const UserModal();
                         });
-                      }, icon: Icon(Icons.pending_outlined))
+                      }, icon: const Icon(Icons.pending_outlined))
                 ],
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "85 seguidores",

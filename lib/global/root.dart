@@ -22,13 +22,13 @@ class AppRoot extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
         inputDecorationTheme: InputDecorationTheme(
-          floatingLabelStyle: TextStyle(
-            color: colorScheme.primary,
-          )
-        ),
-
+            floatingLabelStyle: TextStyle(
+          color: colorScheme.primary,
+        )),
         appBarTheme: AppBarTheme(
-           toolbarHeight: Platform.isAndroid ? kToolbarHeight + 35 : kToolbarHeight,
+          toolbarHeight:
+              Platform.isAndroid ? kToolbarHeight + 35 : kToolbarHeight,
+          surfaceTintColor: Colors.transparent,
         ),
       ),
       home: const SplashScreen(),

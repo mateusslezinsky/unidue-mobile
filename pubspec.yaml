@@ -66,6 +66,15 @@ flutter:
     - assets/images/home.jpeg
     - assets/images/logo.png
     - assets/images/logo_blue.png
+    - assets/images/unidue_explore.png
+    - assets/images/esportes.jpeg
+    - assets/images/eventos.jpeg
+    - assets/images/projetos.png
+    - assets/images/outside.jpeg
+    - assets/images/moradia.jpeg
+    - assets/images/artecultura.jpg
+    - assets/images/comunidadevoluntariado.jpg
+    - assets/images/gruposestudos.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
