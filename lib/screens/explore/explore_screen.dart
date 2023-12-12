@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:unidue/screens/explore/widgets/explore_grid.dart';
+import 'package:unidue/screens/explore/widgets/explore_top_area.dart';
+import 'package:unidue/screens/explore/widgets/top_scaffold.dart';
 
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});
@@ -9,109 +11,66 @@ class ExploreScreen extends StatefulWidget {
 }
 
 class _ExploreScreenState extends State<ExploreScreen> {
-  int _currentPage = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Don't show the leading button
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Pesquisar",
-                  hintStyle: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  contentPadding: EdgeInsets.zero,
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Theme.of(context).colorScheme.onBackground,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 20),
-            Image.asset(
-              "assets/images/logo_blue.png",
-              width: 50,
-              height: 50,
-            ),
-          ],
-        ),
+        automaticallyImplyLeading: false,
+        title: const TopScaffold(),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
+            const ExploreTopArea(),
             const SizedBox(height: 20),
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: const DecorationImage(
-                    image: AssetImage("assets/images/unidue_explore.png"),
-                    fit: BoxFit.fill,
-                  ),
-                ),
+            Card(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Theme.of(context).colorScheme.secondary, width: 1),
+                borderRadius: BorderRadius.circular(16),
               ),
-            ),
-            Container(
-              height: 150,
-              margin: const EdgeInsets.symmetric(vertical: 30),
-              child: PageView(
-                  controller: PageController(),
-                  onPageChanged: (page) => setState(() => _currentPage = page),
-                  children: const [
-                    ExploreGrid(
-                      sources: [
-                        "assets/images/esportes.jpeg",
-                        "assets/images/projetos.png",
-                        "assets/images/eventos.jpeg",
-                        "assets/images/outside.jpeg"
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const CircleAvatar(
+                        radius: 30,
+                        foregroundImage: CachedNetworkImageProvider(
+                          "https://images.mubicdn.net/images/cast_member/2184/cache-2992-1547409411/image-w856.jpg",
+                        )),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("@tomcruise",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 5),
+                        const Text("Festa aqui em casa"),
+                        const SizedBox(height: 5),
+                        Text("Apenas alunos do CSE",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontWeight: FontWeight.bold))
                       ],
                     ),
-                    ExploreGrid(
-                      sources: [
-                        "assets/images/moradia.jpeg",
-                        "assets/images/artecultura.jpg",
-                        "assets/images/comunidadevoluntariado.jpg",
-                        "assets/images/gruposestudos.jpg"
+                    Column(
+                      children: [
+                        Icon(
+                          Icons.where_to_vote_rounded,
+                          color: Theme.of(context).colorScheme.secondary,
+                          size: 30,
+                        ),
+                        const SizedBox(height: 10),
+                        const Text("22:00-00:00")
                       ],
                     ),
-                  ]),
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    width: 40,
-                    child: Divider(
-                      color: _currentPage== 0 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.outline,
-                      height: 3,
-                      thickness: 3,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  SizedBox(
-                    width: 40,
-                    child: Divider(
-                      color: _currentPage== 1 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.outline,
-                      height: 3,
-                      thickness: 3,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             )
           ],
